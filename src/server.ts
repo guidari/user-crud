@@ -8,4 +8,5 @@ app.use(express.json());
 
 app.use("/users", usersRoutes);
 
-app.listen(3333, () => console.log("Server is running!"));
+const port = process.env.PORT || 3333;
+app.listen(port, () => console.log("Server is running on port 3333"));

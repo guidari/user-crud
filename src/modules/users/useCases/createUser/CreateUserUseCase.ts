@@ -3,15 +3,15 @@ import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
   name: string;
-  idade: number;
-  endereco: string;
+  age: number;
+  address: string;
 }
 
 class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
-  execute({ name, idade, endereco }: IRequest): User {
-    return this.usersRepository.create({ name, idade, endereco });
+  execute({ name, age, address }: IRequest): User {
+    return this.usersRepository.create({ name, age, address });
   }
 }
 

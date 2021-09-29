@@ -6,14 +6,14 @@ class UpdateUserController {
   constructor(private updateUserUseCase: UpdateUserUseCase) {}
   handle(request: Request, response: Response): Response {
     const { id } = request.params;
-    const { name, idade, endereco } = request.headers;
+    const { name, age, address } = request.headers;
 
     try {
       const updateUser = this.updateUserUseCase.execute({
         id: String(id),
         name: String(name),
-        idade: Number(idade),
-        endereco: String(endereco),
+        age: Number(age),
+        address: String(address),
       });
 
       return response.status(201).json(updateUser);

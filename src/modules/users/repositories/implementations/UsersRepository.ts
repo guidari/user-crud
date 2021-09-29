@@ -18,13 +18,13 @@ class UsersRepository implements IUsersRepository {
     return UsersRepository.INSTANCE;
   }
 
-  create({ name, idade, endereco }: ICreateUserDTO): User {
+  create({ name, age, address }: ICreateUserDTO): User {
     const user = new User();
 
     Object.assign(user, {
       name,
-      idade,
-      endereco,
+      age,
+      address,
     });
 
     this.users.push(user);
@@ -46,7 +46,7 @@ class UsersRepository implements IUsersRepository {
     return userDeleted;
   }
 
-  update({ id, name, idade, endereco }): User {
+  update({ id, name, age, address }): User {
     const userIndex = this.users.findIndex((user) => user.id === id);
     const user = this.users.find((user) => user.id === id);
 
@@ -54,8 +54,8 @@ class UsersRepository implements IUsersRepository {
 
     Object.assign(this.users[userIndex], {
       name,
-      idade,
-      endereco,
+      age,
+      address,
       updated_at,
     });
 
